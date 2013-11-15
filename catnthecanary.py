@@ -8,7 +8,7 @@
 #
 # Installation
 # -----------------------------------------------
-# Killchain was tested on Ubuntu 12.04 and OSX ML
+# Catnthecanary was tested on Ubuntu 12.04 and OSX ML
 # ----------- OSX ---------------
 # OSX Deps: pip install -U -r environment.txt
 # ----------- Linux -------------
