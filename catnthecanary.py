@@ -40,151 +40,76 @@ def usage():
     print '-w or --http     Url address (Required)'
     print '-W or --wfile    Newline delimited URL file (Required)'
 
+def stage_request(kval, sval):
+    reqval = kval.strip()
+    query = "!%s+%s" % (sval, reqval)
+    canurl = ("https://canary.pw/search/?q=" + query)
+    r = requests.get(canurl)
+    if r.status_code is 200:
+        process_response(r, reqval, canurl)
+    else:
+        print "Error: HTTP response returned: %s" % (r.status_code)
 
 def make_requests(argdict):
     for k in argdict.keys():
         if 'ip' in k:
             ip = argdict.get(k)
-            hostip = ip.strip()
-            query = "!ip+" + hostip
-            canurl = ("https://canary.pw/search/?q=" + query)
-            r = requests.get(canurl)
-            if r.status_code is 200:
-                process_response(r, hostip, canurl)
-            else:
-                print "Error: HTTP reponse returned: %s" % (r.status_code)
+            stage_request(ip,'ip')
         if 'ifile' in k:
             ifile = argdict.get(k)
             try:
                 for ip in ifile:
-                    hostip = ip.strip()
-                    query = "!ip+" + hostip
-                    canurl = ("https://canary.pw/search/?q=" + query)
-                    r = requests.get(canurl)
-                    if r.status_code is 200:
-                        process_response(r, hostip, canurl)
-                    else:
-                        print "Error: HTTP reponse returned: %s" % (r.status_code)
+                    stage_request(ip,'ip')
             finally:
                 ifile.close()
         if 'email' in k:
             email = argdict.get(k)
-            emailstrip = email.strip()
-            query = "!email+" + emailstrip
-            canurl = ("https://canary.pw/search/?q=" + query)
-            r = requests.get(canurl)
-            if r.status_code is 200:
-                process_response(r, emailstrip, canurl)
-            else:
-                print "Error: HTTP reponse returned: %s" % (r.status_code)
+            stage_request(email,'email')
         if 'efile' in k:
             efile = argdict.get(k)
             try:
                 for email in efile:
-                    emailstrip = email.strip()
-                    query = "!email+" + emailstrip
-                    canurl = ("https://canary.pw/search/?q=" + query)
-                    r = requests.get(canurl)
-                    if r.status_code is 200:
-                        process_response(r, emailstrip, canurl)
-                    else:
-                        print "Error: HTTP reponse returned: %s" % (r.status_code)
+                    stage_request(email,'email')
             finally:
                 efile.close()
         if 'host' in k:
             host = argdict.get(k)
-            hoststrip = host.strip()
-            query = "!host+" + hoststrip
-            canurl = ("https://canary.pw/search/?q=" + query)
-            r = requests.get(canurl)
-            if r.status_code is 200:
-                process_response(r, hoststrip, canurl)
-            else:
-                print "Error: HTTP reponse returned: %s" % (r.status_code)
+            stage_request(host,'host')
         if 'hfile' in k:
             hfile = argdict.get(k)
             try:
                 for host in hfile:
-                    hoststrip = host.strip()
-                    query = "!host+" + hoststrip
-                    canurl = ("https://canary.pw/search/?q=" + query)
-                    r = requests.get(canurl)
-                    if r.status_code is 200:
-                        process_response(r, hoststrip, canurl)
-                    else:
-                        print "Error: HTTP reponse returned: %s" % (r.status_code)
+                    stage_request(host,'host')
             finally:
                 hfile.close()
         if 'hash' in k:
             hash = argdict.get(k)
-            hashstrip = hash.strip()
-            query = "!hash+" + hashstrip
-            canurl = ("https://canary.pw/search/?q=" + query)
-            r = requests.get(canurl)
-            if r.status_code is 200:
-                process_response(r, hashstrip, canurl)
-            else:
-                print "Error: HTTP reponse returned: %s" % (r.status_code)
+            stage_request(hash,'hash')
         if 'afile' in k:
             afile = argdict.get(k)
             try:
                 for hash in afile:
-                    hashstrip = hash.strip()
-                    query = "!hash+" + hashstrip
-                    canurl = ("https://canary.pw/search/?q=" + query)
-                    r = requests.get(canurl)
-                    if r.status_code is 200:
-                        process_response(r, hashstrip, canurl)
-                    else:
-                        print "Error: HTTP reponse returned: %s" % (r.status_code)
+                    stage_request(hash,'hash')
             finally:
                 afile.close()
         if 'phone' in k:
             phone = argdict.get(k)
-            phonestrip = phone.strip()
-            query = "!phone+" + phonestrip
-            canurl = ("https://canary.pw/search/?q=" + query)
-            r = requests.get(canurl)
-            if r.status_code is 200:
-                process_response(r, phonestrip, canurl)
-            else:
-                print "Error: HTTP reponse returned: %s" % (r.status_code)
+            stage_request(phone,'phone')
         if 'pfile' in k:
             pfile = argdict.get(k)
             try:
                 for phone in pfile:
-                    phonestrip = phone.strip()
-                    query = "!phone+" + phonestrip
-                    canurl = ("https://canary.pw/search/?q=" + query)
-                    r = requests.get(canurl)
-                    if r.status_code is 200:
-                        process_response(r, phonestrip, canurl)
-                    else:
-                        print "Error: HTTP reponse returned: %s" % (r.status_code)
+                    stage_request(phone,'phone')
             finally:
                 pfile.close()
         if 'http' in k:
             http = argdict.get(k)
-            httpstrip = http.strip()
-            query = "!http+" + httpstrip
-            canurl = ("https://canary.pw/search/?q=" + query)
-            r = requests.get(canurl)
-            if r.status_code is 200:
-                process_response(r, httpstrip, canurl)
-            else:
-                print "Error: HTTP reponse returned: %s" % (r.status_code)
+            stage_request(http,'http')
         if 'wfile' in k:
             wfile = argdict.get(k)
             try:
                 for http in wfile:
-                    httpstrip = http.strip()
-                    query = "!http+" + httpstrip
-                    canurl = ("https://canary.pw/search/?q=" + query)
-                    r = requests.get(canurl)
-                    if r.status_code is 200:
-                        process_response(r, httpstrip, canurl)
-                    else:
-                        print "Error: HTTP reponse returned: %s" % (r.status_code)
+                    stage_request(http,'http')
             finally:
                 wfile.close()
 
