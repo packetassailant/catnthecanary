@@ -3,7 +3,7 @@
 ## Objective
 ```
 Catnthecanary is an application to query the canary.pw (https://canary.pw/) data set for potentially
-sensitive data that has been disclosed on various public repositories, such as pastebin. Currenlty,
+sensitive data that has been disclosed on various public repositories, such as pastebin. Currently,
 the maintainers of canary.pw don't expose an API to interface with the data set. Therefore, this
 application attempts to create a method to programmatically perform single and bulk queries. The
 supported canary.pw operators are as follows. Although, these have been obfuscated and simply use
