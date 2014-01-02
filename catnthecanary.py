@@ -102,7 +102,7 @@ def make_requests(argdict):
                     stage_request(phone,'phone')
             finally:
                 pfile.close()
-        if 'http' in k:
+        if 'web' in k:
             http = argdict.get(k)
             stage_request(http,'http')
         if 'wfile' in k:
